@@ -20,7 +20,7 @@ github_username:  tollyx
 steam_username:   tollyx
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 kramdown:
  input: GFM
  hard_wrap: false
