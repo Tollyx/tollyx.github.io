@@ -20,12 +20,10 @@ github_username:  tollyx
 steam_username:   tollyx
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 kramdown:
  input: GFM
  hard_wrap: false
 gems:
  - jekyll-coffeescript
  - jekyll-paginate
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
