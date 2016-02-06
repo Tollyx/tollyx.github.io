@@ -14,7 +14,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 Here, have some recursive shadowcasting:
 
-```c++
+```cpp
 void TileMap::CastLight(int row, float start, float end, int xx, int xy, int yx, int yy, int startX, int startY, float radius)
 {
   float newStart = 0.0f;
