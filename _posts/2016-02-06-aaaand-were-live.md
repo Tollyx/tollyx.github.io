@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Aaaand we're live!"
-date: "2016-02-06 21:09:28 -0100"
+date: "2016-02-06 21:09:28 +0100"
 comments: true
 ---
 
