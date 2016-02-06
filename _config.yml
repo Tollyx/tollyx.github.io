@@ -1,0 +1,31 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: tollyx.net
+email: adrian@tollyx.net
+description: > # this means to ignore newlines until "baseurl:"
+  Adrian Hedqvist's blog about game development and occasionally
+  other stuff that he finds interesting.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://tollyx.net" # the base hostname & protocol for your site
+paginate: 10
+paginate_path: "/page:num/"
+twitter_username: tollyx
+github_username:  tollyx
+steam_username:   tollyx
+
+# Build settings
+markdown: kramdown
+kramdown:
+ input: GFM
+ hard_wrap: false
+gems:
+ - jekyll-coffeescript
+ - jekyll-paginate
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
