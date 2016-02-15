@@ -2,8 +2,9 @@
 layout: post
 title: "Moving in circles"
 date: "2016-02-11 0:00:00 +0100"
+author: "Adrian Hedqvist"
 comments: true
-category: "GAME"
+category: "game"
 tags:
  - 5SD033
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: "Aaaand we're live!"
 date: "2016-02-06 21:09:28 +0100"
+author: "Adrian Hedqvist"
 comments: true
 ---
 
