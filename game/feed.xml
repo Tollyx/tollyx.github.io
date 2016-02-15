@@ -17,6 +17,10 @@ category: game
         <title>{{ post.title | xml_escape }}</title>
         <description>{{ post.content | strip_html | truncatewords: 100 | xml_escape }}</description>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <author>
+          <name>Adrian Hedqvist</name>
+          <email>adrian@tollyx.net</email>
+        </author>
         <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
         <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
         {% for tag in post.tags %}
