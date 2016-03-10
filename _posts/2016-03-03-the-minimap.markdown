@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Minimap"
-date: "2016-03-03 21:18:48 +0100"
+date: "2016-03-03 21:18 +0100"
 author: "Adrian Hedqvist"
 categories: game
 comments: true
