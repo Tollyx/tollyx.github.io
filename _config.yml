@@ -27,6 +27,7 @@ kramdown:
 gems:
  - jekyll-coffeescript
  - jekyll-paginate
+ - jekyll-archive
 lsi: false
 safe: true
 incremental: false
