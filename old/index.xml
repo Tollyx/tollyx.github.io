@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tollyx.net</title>
+    <link>http://tollyx.net/old/</link>
+    <description>Recent content on tollyx.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 01 May 2017 15:27:37 +0200</lastBuildDate>
+    
+	<atom:link href="http://tollyx.net/old/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Rat Betwixt: Initiative</title>
+      <link>http://tollyx.net/old/a-rat-betwixt-initiative/</link>
+      <pubDate>Mon, 01 May 2017 15:27:37 +0200</pubDate>
+      
+      <guid>http://tollyx.net/old/a-rat-betwixt-initiative/</guid>
+      <description>The turn order of all enemies and players are determined by their initiative. This is pretty much how things have been done in turn-based RPG&amp;rsquo;s since forever in some form. We could&amp;rsquo;ve determined a characters initiative with rolling a dice, add a base value and call it a day, but we thought that it wasn&amp;rsquo;t interesting enough. And we&amp;rsquo;d like to avoid pure dice rolls if possible.
+At the start of the planning phase of each turn, the player is shown a menu that lets them choose between up to five initiative values - the one they choose is consumed when they submit their turn and in the next turn they&amp;rsquo;ll have to choose one of the remaining ones.</description>
+    </item>
+    
+    <item>
+      <title>A Rat Betwixt</title>
+      <link>http://tollyx.net/old/a-rat-betwixt/</link>
+      <pubDate>Thu, 27 Apr 2017 17:15:00 +0100</pubDate>
+      
+      <guid>http://tollyx.net/old/a-rat-betwixt/</guid>
+      <description>This post is already 2 weeks late - so let&amp;rsquo;s get going right away.
+It&amp;rsquo;s been over a year since the last series of posts and now I&amp;rsquo;m back to write about the project I&amp;rsquo;m curently working on: A Rat Betwixt. It&amp;rsquo;s a turn-based local (for now - probably online in the future) multiplayer co-op(tional?) strategy RPG, with some deception and hidden agendas mixed in.
+The game is played on one large screen - such as a TV or a projector - and each player have their phone, tablet or laptop as their own controller.</description>
+    </item>
+    
+    <item>
+      <title>It&#39;s Raining Crates</title>
+      <link>http://tollyx.net/old/its-raining-crates/</link>
+      <pubDate>Thu, 17 Mar 2016 23:04:08 +0100</pubDate>
+      
+      <guid>http://tollyx.net/old/its-raining-crates/</guid>
+      <description>Oh wow, what a week. Tomorrow is the deadline and I&amp;rsquo;ve gotten a lot of things done these last few days. It was pretty hard to decide what to write about!
+At first, our powerups were dropped by the enemies when they explode. It didn&amp;rsquo;t make much sense because they&amp;rsquo;re not trying to shoot anyone down, they&amp;rsquo;re just trying to land on your planet. So we switched it up: The powerups now comes in crates (Worms-style), sent by whatever company you&amp;rsquo;re working for so you can keep doing your job.</description>
+    </item>
+    
+    <item>
+      <title>You got a new Highscore!</title>
+      <link>http://tollyx.net/old/you-got-a-new-highscore/</link>
+      <pubDate>Thu, 10 Mar 2016 23:00:48 +0100</pubDate>
+      
+      <guid>http://tollyx.net/old/you-got-a-new-highscore/</guid>
+      <description>This week I finished our highscore system, but when I say finished I actually mean &amp;ldquo;we finally got this thing working properly don&amp;rsquo;t touch it&amp;rdquo;. We&amp;rsquo;ve actually been working on the highscore system on and off for a few weeks now and it didn&amp;rsquo;t work nicely until recently. And we still need to work a bit on the UI. Why it took so long is because we had a bunch of small problems that together caused a pretty large mess.</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Grupp 9, spelarklass</title>
+      <link>http://tollyx.net/old/code-review-grupp-9-spelarklass/</link>
+      <pubDate>Fri, 04 Mar 2016 13:31:05 +0100</pubDate>
+      
+      <guid>http://tollyx.net/old/code-review-grupp-9-spelarklass/</guid>
+      <description>Det allra första som jag tänkte på när jag kollade igenom spelarklassen var det att ni använder en inputklass, men ni använder den till saker som SFML redan har inbyggt. sf::Mouse och sf::Keyboard har redan det ni behöver, varför återskapa det? Det enda som jag kan komma på som man skulle kunna använda en egen inputklass till som SFML inte redan gör åt en är keybinds, vilket ni kanske har planerat.</description>
+    </item>
+    
+    <item>
+      <title>The Minimap</title>
+      <link>http://tollyx.net/old/the-minimap/</link>
+      <pubDate>Thu, 03 Mar 2016 21:18:00 +0100</pubDate>
+      
+      <guid>http://tollyx.net/old/the-minimap/</guid>
+      <description>When you have a playing field that&amp;rsquo;s large enough so the screen barely covers 1/5th of the map, you&amp;rsquo;re going to have issues with knowing where the enemies, obstacles or what you now have is coming from. When you&amp;rsquo;re also limited in how fast you can check all directions, it&amp;rsquo;s just going to be an frustrating experience unless you have some other way to see where the enemies are coming from.</description>
+    </item>
+    
+    <item>
+      <title>Graphs</title>
+      <link>http://tollyx.net/old/graphs/</link>
+      <pubDate>Thu, 25 Feb 2016 20:00:00 +0100</pubDate>
+      
+      <guid>http://tollyx.net/old/graphs/</guid>
+      <description>The concept we chose for our project, Planet Suburbia, does a pretty interesting thing when it comes to in-game resources: money and health is the same thing. The explaination behind it is that you have the job of defending the planet. You can spend your companys money to up your defences, but it also gets drained when the invading aliens manages to land on the planet. If you go over budget, you get an angry phone call from your boss who tells you that you&amp;rsquo;re fired.</description>
+    </item>
+    
+    <item>
+      <title>Aimbotting for turrets</title>
+      <link>http://tollyx.net/old/aimbotting-for-turrets/</link>
+      <pubDate>Thu, 18 Feb 2016 23:22:00 +0100</pubDate>
+      
+      <guid>http://tollyx.net/old/aimbotting-for-turrets/</guid>
+      <description>It&amp;rsquo;s pretty hard to defend a planet if you&amp;rsquo;re alone. I mean, you&amp;rsquo;re just this tiny guy on this huge planet and aliens are attacking from all over the place. You simply won&amp;rsquo;t be able to defend the entire planet at once. The solution? Turrets!
+ These wasn&amp;rsquo;t that hard to implement since we&amp;rsquo;re placing the turret at the players position that we&amp;rsquo;ve already calculated and reuse the aiming and shooting code that we have for the player!</description>
+    </item>
+    
+    <item>
+      <title>Moving in circles</title>
+      <link>http://tollyx.net/old/moving-in-circles/</link>
+      <pubDate>Thu, 11 Feb 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://tollyx.net/old/moving-in-circles/</guid>
+      <description>If you want to move around a 2D planet while still being able to loop around, you have a few options. You could have the ground be flat like any other 2D game and loop one edge to the other, having your characters move just like any other 2D game. Or you could make the ground an actual circle and make your characters orbit around it using basic trigonometrics. We (or, well, I) decided to do the latter.</description>
+    </item>
+    
+    <item>
+      <title>Aaaand we&#39;re live!</title>
+      <link>http://tollyx.net/old/aaaand-were-live/</link>
+      <pubDate>Sat, 06 Feb 2016 21:09:28 +0100</pubDate>
+      
+      <guid>http://tollyx.net/old/aaaand-were-live/</guid>
+      <description>I don&amp;rsquo;t know how many blogs I&amp;rsquo;ve started just to take them down again, but this one is going to stay up for atleast quite some time. The reason why is simply because it&amp;rsquo;s part of an self-reflection assignment for school. So here you&amp;rsquo;ll get to see what the hell I&amp;rsquo;m doing for school, which will be mostly gamedev stuff.
+The site is currently hosted by github pages and is built using jekyll.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="tollyx">
+<meta name="description" content="Det allra första som jag tänkte på när jag kollade igenom spelarklassen var det att ni använder en inputklass, men ni använder den till saker som SFML redan har inbyggt. sf::Mouse och sf::Keyboard har redan det ni behöver, varför återskapa det? Det enda som jag kan komma på som man skulle kunna använda en egen inputklass till som SFML inte redan gör åt en är keybinds, vilket ni kanske har planerat.">
+
+<meta property="og:title" content="Code Review: Grupp 9, spelarklass" />
+<meta property="og:description" content="Det allra första som jag tänkte på när jag kollade igenom spelarklassen var det att ni använder en inputklass, men ni använder den till saker som SFML redan har inbyggt. sf::Mouse och sf::Keyboard har redan det ni behöver, varför återskapa det? Det enda som jag kan komma på som man skulle kunna använda en egen inputklass till som SFML inte redan gör åt en är keybinds, vilket ni kanske har planerat." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tollyx.net/old/code-review-grupp-9-spelarklass/" />
+
+
+
+<meta property="article:published_time" content="2016-03-04T13:31:05&#43;01:00"/>
+<meta property="article:modified_time" content="2016-03-04T13:31:05&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Code Review: Grupp 9, spelarklass 
+
+</title>
+<link rel="canonical" href="http://tollyx.net/old/code-review-grupp-9-spelarklass/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://tollyx.net/css/reset.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/pygments.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/main.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    
+        <link rel="stylesheet" href="http://tollyx.net/css/override.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://tollyx.net/img/fav.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://tollyx.net/"><img class="avatar" src="http://tollyx.net/img/avatar.png" srcset="http://tollyx.net/img/avatar.png 1x"></a>
+            
+            <a href="http://tollyx.net/"><div class="name">tollyx</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="http://tollyx.net/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="http://tollyx.net/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-projects"><a href="http://tollyx.net/projects/"><span>Projects</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//gitlab.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/gitlab.svg" alt="gitlab" /></a>
+        
+
+        
+            <a href="//twitter.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:adrian@tollyx.net"><img class="icon" src="http://tollyx.net/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="http://tollyx.net/index.xml"><img class="icon" src="http://tollyx.net/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    Code Review: Grupp 9, spelarklass
+
+</div>
+
+            <div class="markdown">
+                <p>Det allra första som jag tänkte på när jag kollade igenom spelarklassen var det att ni använder en inputklass, men ni använder den till saker som SFML redan har inbyggt. <code>sf::Mouse</code> och <code>sf::Keyboard</code> har redan det ni behöver, varför återskapa det? Det enda som jag kan komma på som man skulle kunna använda en egen inputklass till som SFML inte redan gör åt en är keybinds, vilket ni kanske har planerat.</p>
+
+<p>Men ett bättre sätt för att få bort input ifrån spelarklassen skulle nog vara att kolla input utanför klassen för att sedan anropa t.ex. <code>giraffe.fire()</code> om skjutknappen var nedtryckt. En annan idé (som jag inte har provat kan vara värt att nämna) skulle vara att skicka in via update eller någon annan funktion en &ldquo;event&rdquo; enum (t.ex. <code>EVENT_MOVELEFT</code>, <code>EVENT_FIRE</code> osv) som karaktären använder för att göra saker med. En rolig sak med det här är att om man gör så att AI&rsquo;n &ldquo;kör&rdquo; fienderna på samma sätt så skulle man lätt kunna ta kontroll över fienderna och AI&rsquo;n ta kontroll över spelarkaraktären.</p>
+
+<p>Och då kommer vi till entitymanagern som ni använder för att skapa nya projektiler. Jag skulle personligen vilja hålla vad för projektiler och hur inne i spelarklassen, så medans man skulle kunna göra en <code>isFiring()</code> funktion och flytta all spawning till entitymanagern eller gamestatet, så skulle jag inte vilja göra det. En annan lösning skulle kunna vara att man har någon funktion som returnerar alla objekt som klassen skapar, men det tror jag inte är någon alltför bra idé det heller. Utöver det så vet jag inte riktigt, jag skulle vilja få ut entitymanagern därifrån, men eftersom jag inte vet någon bra lösning så skulle jag lämna den där.</p>
+
+<p>Trots det jag har skrivit så tycker jag att det ser bra ut. Men jag kan inte låta bli att bli lite nyfiken på varför ni har bestämt att skippa en hel del saker som SFML kan ta hand om åt en, som att ni inte använder <code>sf::Sprite</code> och <code>sf::RenderWindow</code>s draw-funktion. Jag säger inte att ni gör något fel, utan jag förstår bara inte riktigt varför.</p>
+
+            </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tollyx';
+    var disqus_identifier = 'http:\/\/tollyx.net\/old\/code-review-grupp-9-spelarklass\/';
+    var disqus_title = 'Code Review: Grupp 9, spelarklass';
+    var disqus_url = 'http:\/\/tollyx.net\/old\/code-review-grupp-9-spelarklass\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+</body>
+</html>
+

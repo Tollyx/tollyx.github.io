@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="tollyx">
+<meta name="description" content="The turn order of all enemies and players are determined by their initiative. This is pretty much how things have been done in turn-based RPG&rsquo;s since forever in some form. We could&rsquo;ve determined a characters initiative with rolling a dice, add a base value and call it a day, but we thought that it wasn&rsquo;t interesting enough. And we&rsquo;d like to avoid pure dice rolls if possible.
+At the start of the planning phase of each turn, the player is shown a menu that lets them choose between up to five initiative values - the one they choose is consumed when they submit their turn and in the next turn they&rsquo;ll have to choose one of the remaining ones.">
+
+<meta property="og:title" content="A Rat Betwixt: Initiative" />
+<meta property="og:description" content="The turn order of all enemies and players are determined by their initiative. This is pretty much how things have been done in turn-based RPG&rsquo;s since forever in some form. We could&rsquo;ve determined a characters initiative with rolling a dice, add a base value and call it a day, but we thought that it wasn&rsquo;t interesting enough. And we&rsquo;d like to avoid pure dice rolls if possible.
+At the start of the planning phase of each turn, the player is shown a menu that lets them choose between up to five initiative values - the one they choose is consumed when they submit their turn and in the next turn they&rsquo;ll have to choose one of the remaining ones." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tollyx.net/old/a-rat-betwixt-initiative/" />
+
+
+
+<meta property="article:published_time" content="2017-05-01T15:27:37&#43;02:00"/>
+<meta property="article:modified_time" content="2017-05-01T15:27:37&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     A Rat Betwixt: Initiative 
+
+</title>
+<link rel="canonical" href="http://tollyx.net/old/a-rat-betwixt-initiative/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://tollyx.net/css/reset.css?t=2017-06-26%2017%3a43%3a43.4778585%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/pygments.css?t=2017-06-26%2017%3a43%3a43.4778585%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/main.css?t=2017-06-26%2017%3a43%3a43.4778585%20%2b0200%20CEST">
+    
+        <link rel="stylesheet" href="http://tollyx.net/css/override.css?t=2017-06-26%2017%3a43%3a43.4778585%20%2b0200%20CEST">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://tollyx.net/img/fav.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://tollyx.net/"><img class="avatar" src="http://tollyx.net/img/avatar.png" srcset="http://tollyx.net/img/avatar.png 1x"></a>
+            
+            <a href="http://tollyx.net/"><div class="name">tollyx</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="http://tollyx.net/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="http://tollyx.net/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-projects"><a href="http://tollyx.net/projects/"><span>Projects</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//gitlab.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/gitlab.svg" alt="gitlab" /></a>
+        
+
+        
+            <a href="//twitter.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:adrian@tollyx.net"><img class="icon" src="http://tollyx.net/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="http://tollyx.net/index.xml"><img class="icon" src="http://tollyx.net/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    A Rat Betwixt: Initiative
+
+</div>
+
+            <div class="markdown">
+                <p>The turn order of all enemies and players are determined by their initiative. This is pretty much how things have been done in turn-based RPG&rsquo;s since forever in some form. We could&rsquo;ve determined a characters initiative with rolling a dice, add a base value and call it a day, but we thought that it wasn&rsquo;t interesting enough. And we&rsquo;d like to avoid pure dice rolls if possible.</p>
+
+<p><img src="http://i.imgur.com/50wqeI2.png" alt="The initiative cards menu. It's still all placeholder art." /></p>
+
+<p>At the start of the planning phase of each turn, the player is shown a menu that lets them choose between up to five initiative values - the one they choose is consumed when they submit their turn and in the next turn they&rsquo;ll have to choose one of the remaining ones. When the player runs out of initiative &ldquo;cards&rdquo; the player is given five new ones. This is great as it makes a previously pure RNG part of the game into an interesting and important choice - do I want to move first or last? Do I save this high initiative card so I can run away if I get into a bad spot? They can&rsquo;t ignore whatever low cards they get either since they&rsquo;re not getting any new ones until they&rsquo;ve used all of them, so it&rsquo;s in their best interest to use low-value cards if they can afford it just to get rid of them.</p>
+
+<p>The current algorithm (as of this post) to generate the initiative card values looks like this:</p>
+
+<pre><code class="language-cs">// Character.cs
+// function Character.newTurn()
+// ...
+if (initiativeCards.Count == 0)
+{
+    int initiativePool = startPool; // The sum of all the cards initiative values will equal this
+
+    while (initiativePool &gt; 0 &amp;&amp; initiativeCards.Count &lt; cards)
+    {
+        if (initiativeCards.Count &lt; cards - 1)
+        {
+            int initiative = Random.Range(1, initiativePool / 2);
+            initiativePool -= initiative;
+            initiativeCards.Add(initiative);
+        }
+        else
+        {
+            // Only one card left, let's just use what's left in the pool
+            initiativeCards.Add(pool);
+            pool = 0;
+        }
+    }
+}
+</code></pre>
+
+<p>I don&rsquo;t think the algorithm is perfect, as it produces some very visible quirks when you look at multiple sets of generated numbers. The numbers tend to essentually look like a downward slope with a large spike at the end. We don&rsquo;t think it will have any large impact on the gameplay though, so we will be using it for now. And if the visible patterns for some reason becomes an issue you could put it under the rug by shuffling the list before giving it to the player just to hide the pattern. It&rsquo;s not a real solution to the issue but oh well, we&rsquo;ll see if it becomes an problem.</p>
+
+            </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tollyx';
+    var disqus_identifier = 'http:\/\/tollyx.net\/old\/a-rat-betwixt-initiative\/';
+    var disqus_title = 'A Rat Betwixt: Initiative';
+    var disqus_url = 'http:\/\/tollyx.net\/old\/a-rat-betwixt-initiative\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+</body>
+</html>
+

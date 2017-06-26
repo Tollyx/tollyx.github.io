@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="tollyx">
+<meta name="description" content="This post is already 2 weeks late - so let&rsquo;s get going right away.
+It&rsquo;s been over a year since the last series of posts and now I&rsquo;m back to write about the project I&rsquo;m curently working on: A Rat Betwixt. It&rsquo;s a turn-based local (for now - probably online in the future) multiplayer co-op(tional?) strategy RPG, with some deception and hidden agendas mixed in.
+The game is played on one large screen - such as a TV or a projector - and each player have their phone, tablet or laptop as their own controller.">
+
+<meta property="og:title" content="A Rat Betwixt" />
+<meta property="og:description" content="This post is already 2 weeks late - so let&rsquo;s get going right away.
+It&rsquo;s been over a year since the last series of posts and now I&rsquo;m back to write about the project I&rsquo;m curently working on: A Rat Betwixt. It&rsquo;s a turn-based local (for now - probably online in the future) multiplayer co-op(tional?) strategy RPG, with some deception and hidden agendas mixed in.
+The game is played on one large screen - such as a TV or a projector - and each player have their phone, tablet or laptop as their own controller." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tollyx.net/old/a-rat-betwixt/" />
+
+
+
+<meta property="article:published_time" content="2017-04-27T17:15:00&#43;01:00"/>
+<meta property="article:modified_time" content="2017-04-27T17:15:00&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     A Rat Betwixt 
+
+</title>
+<link rel="canonical" href="http://tollyx.net/old/a-rat-betwixt/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://tollyx.net/css/reset.css?t=2017-06-26%2017%3a43%3a43.4778585%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/pygments.css?t=2017-06-26%2017%3a43%3a43.4778585%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/main.css?t=2017-06-26%2017%3a43%3a43.4778585%20%2b0200%20CEST">
+    
+        <link rel="stylesheet" href="http://tollyx.net/css/override.css?t=2017-06-26%2017%3a43%3a43.4778585%20%2b0200%20CEST">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://tollyx.net/img/fav.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://tollyx.net/"><img class="avatar" src="http://tollyx.net/img/avatar.png" srcset="http://tollyx.net/img/avatar.png 1x"></a>
+            
+            <a href="http://tollyx.net/"><div class="name">tollyx</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="http://tollyx.net/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="http://tollyx.net/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-projects"><a href="http://tollyx.net/projects/"><span>Projects</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//gitlab.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/gitlab.svg" alt="gitlab" /></a>
+        
+
+        
+            <a href="//twitter.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:adrian@tollyx.net"><img class="icon" src="http://tollyx.net/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="http://tollyx.net/index.xml"><img class="icon" src="http://tollyx.net/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    A Rat Betwixt
+
+</div>
+
+            <div class="markdown">
+                <p><img src="http://i.imgur.com/B7n2cLi.png" alt="Cover art made by Sebastian" /></p>
+
+<p>This post is already 2 weeks late - so let&rsquo;s get going right away.</p>
+
+<p>It&rsquo;s been over a year since the last series of posts and now I&rsquo;m back to write about the project I&rsquo;m curently working on: A Rat Betwixt. It&rsquo;s a turn-based local (for now - probably online in the future) multiplayer co-op(tional?) strategy RPG, with some deception and hidden agendas mixed in.</p>
+
+<p><img src="http://i.imgur.com/GEJOSNQ.png" alt="Server screenshot" /></p>
+
+<p>The game is played on one large screen - such as a TV or a projector - and each player have their phone, tablet or laptop as their own controller. This is exciting because every player has their own screen which can show info that&rsquo;s secret from other players. The players also plan out their turn simultaneously as other players, incentivizing discussion between players while planning their turn as well as giving any player with a hidden agenda to decieve others.</p>
+
+<p>We&rsquo;re currently 5 out of 8 weeks into development, where the first two were only concepting and prototyping. Which means the product we currently have is 3 weeks worth of work. Probably more though as it also has several things from the prototype and the artists started making models for it in one of their earlier courses.</p>
+
+<p><img src="http://i.imgur.com/IJpyYjL.png" alt="Client screenshot" /></p>
+
+<p>As much as I love to complain about it, we&rsquo;re using Unity to make the game as it&rsquo;s what most of us in the team has the most experience with and we&rsquo;re on an 8 week time limit. The things that are currently functional in the game is the mobile app connecting to and communitacting with the server, movement, combat and some basic AI enemies. A turn system with players choosing &ldquo;initiative cards&rdquo; is in place and working as well as a bunch of functional placeholder UI stuff.</p>
+
+<p>I&rsquo;m pretty proud that we&rsquo;ve gotten as far as we have, having to deal with networking between android and PC even if Unity unity takes almost all platform-specific stuff away. No matter what you do networking is always going to be a pain in the ass.</p>
+
+<p>The next few posts will focus on more on specific things about the development rather than an overview that this post is. It will of course be pretty much focused on code since that&rsquo;s my kind of thing.</p>
+
+<p>Also, here&rsquo;s some links to the other team member&rsquo;s blogs:<br />
+<a href="https://karlmalmgamedev.wordpress.com/">Karl Malm</a>, producer and programmer.<br />
+<a href="https://sebastianengstrands.wordpress.com/">Sebastian Engstrand</a>, lead design and artist.<br />
+<a href="https://rostfriblog.wordpress.com/">Sakarias Ståhl</a>, lead artist.<br />
+<a href="https://andersschultheiss.wordpress.com/">Anders Schultheiss</a>, lead animator and artist.<br />
+<a href="https://hiddenmaxdesign.wordpress.com/">Maximilian Bergström</a>, artist.<br />
+<a href="https://linusbjernhagendevelop.wordpress.com/">Linus Bjernhagen</a>, (an awesome) programmer.</p>
+
+            </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tollyx';
+    var disqus_identifier = 'http:\/\/tollyx.net\/old\/a-rat-betwixt\/';
+    var disqus_title = 'A Rat Betwixt';
+    var disqus_url = 'http:\/\/tollyx.net\/old\/a-rat-betwixt\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+</body>
+</html>
+

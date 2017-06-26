@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="tollyx">
+<meta name="description" content="The concept we chose for our project, Planet Suburbia, does a pretty interesting thing when it comes to in-game resources: money and health is the same thing. The explaination behind it is that you have the job of defending the planet. You can spend your companys money to up your defences, but it also gets drained when the invading aliens manages to land on the planet. If you go over budget, you get an angry phone call from your boss who tells you that you&rsquo;re fired.">
+
+<meta property="og:title" content="Graphs" />
+<meta property="og:description" content="The concept we chose for our project, Planet Suburbia, does a pretty interesting thing when it comes to in-game resources: money and health is the same thing. The explaination behind it is that you have the job of defending the planet. You can spend your companys money to up your defences, but it also gets drained when the invading aliens manages to land on the planet. If you go over budget, you get an angry phone call from your boss who tells you that you&rsquo;re fired." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tollyx.net/old/graphs/" />
+
+
+
+<meta property="article:published_time" content="2016-02-25T20:00:00&#43;01:00"/>
+<meta property="article:modified_time" content="2016-02-25T20:00:00&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Graphs 
+
+</title>
+<link rel="canonical" href="http://tollyx.net/old/graphs/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://tollyx.net/css/reset.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/pygments.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/main.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    
+        <link rel="stylesheet" href="http://tollyx.net/css/override.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://tollyx.net/img/fav.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://tollyx.net/"><img class="avatar" src="http://tollyx.net/img/avatar.png" srcset="http://tollyx.net/img/avatar.png 1x"></a>
+            
+            <a href="http://tollyx.net/"><div class="name">tollyx</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="http://tollyx.net/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="http://tollyx.net/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-projects"><a href="http://tollyx.net/projects/"><span>Projects</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//gitlab.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/gitlab.svg" alt="gitlab" /></a>
+        
+
+        
+            <a href="//twitter.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:adrian@tollyx.net"><img class="icon" src="http://tollyx.net/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="http://tollyx.net/index.xml"><img class="icon" src="http://tollyx.net/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    Graphs
+
+</div>
+
+            <div class="markdown">
+                <p>The concept we chose for our project, <em>Planet Suburbia</em>, does a pretty interesting thing when it comes to in-game resources: money and health is the same thing. The explaination behind it is that you have the job of defending the planet. You can spend your companys money to up your defences, but it also gets drained when the invading aliens manages to land on the planet. If you go over budget, you get an angry phone call from your boss who tells you that you&rsquo;re fired.</p>
+
+<p>When we came around to coming up with concepts for the game&rsquo;s UI we needed a good way to display this resource. Since it&rsquo;s important to keep an eye on it during gameplay it needs to be easy to see during gameplay. A basic metre with a number slapped on it would&rsquo;ve worked, but we felt that it wouldn&rsquo;t really fit in this economic theme for the game. The first alternative we came up with when we thought of economics was <strong>graphs</strong>.</p>
+
+<p>This week, it was my job to work on the HUD, with the HP/Money graph being part of it. I wouldn&rsquo;t say that is was hard to implement, but it did cause some issues that were time-consuming to fix. But anyway, here it is, in its functional, unfinished glory:</p>
+
+<p><img src="http://i.imgur.com/OkvwGhG.png" alt="It's a graph. A black-blueish graph and a number. That's all it is." /></p>
+
+<p>The things missing are an actual background, a font for the numbers that isn&rsquo;t arial and some polishing to get rid of those &ldquo;cracks&rdquo; in the graph. It will probably also start flashing red when you get dangerously low, but we&rsquo;ll see how that turns out.</p>
+
+<p>The way it works is pretty simple: Each time it updates it creates a line between the previous money value and the current one and moves all the previously created lines back one &ldquo;step&rdquo; (the horizontal distance between two lines) before adding the new line into the vector.</p>
+
+<p>Now when I say &lsquo;line&rsquo;, I actually mean a <a href="http://www.sfml-dev.org/documentation/2.0/classsf_1_1RectangleShape.php"><code>sf::RectangleShape</code></a>, since there isn&rsquo;t a line class in SFML. And since <a href="{% post_url 2016-02-18-aimbotting-for-turrets %}">I&rsquo;ve already explained</a> the logic behind the basic trigonometry in doing this, I&rsquo;ll do the quick rundown: You have two points that you want to draw a line inbetween aswell as the line&rsquo;s width. You calculate the distance between the two points and set it as the rectangles length, then calculate the angle using <code>atan2()</code> and use that for the rectangles rotation and finally set the rectangles height as the provided width for the line. <em>Done.</em></p>
+
+<p>Sorry for those incredibly bad last few sentences. Here, <a href="https://lambda.sx/8W0.mp4">have a pretty bullet pattern</a>.</p>
+
+            </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tollyx';
+    var disqus_identifier = 'http:\/\/tollyx.net\/old\/graphs\/';
+    var disqus_title = 'Graphs';
+    var disqus_url = 'http:\/\/tollyx.net\/old\/graphs\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+</body>
+</html>
+

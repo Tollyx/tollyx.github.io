@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="tollyx">
+<meta name="description" content="If you want to move around a 2D planet while still being able to loop around, you have a few options. You could have the ground be flat like any other 2D game and loop one edge to the other, having your characters move just like any other 2D game. Or you could make the ground an actual circle and make your characters orbit around it using basic trigonometrics. We (or, well, I) decided to do the latter.">
+
+<meta property="og:title" content="Moving in circles" />
+<meta property="og:description" content="If you want to move around a 2D planet while still being able to loop around, you have a few options. You could have the ground be flat like any other 2D game and loop one edge to the other, having your characters move just like any other 2D game. Or you could make the ground an actual circle and make your characters orbit around it using basic trigonometrics. We (or, well, I) decided to do the latter." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tollyx.net/old/moving-in-circles/" />
+
+
+
+<meta property="article:published_time" content="2016-02-11T00:00:00&#43;01:00"/>
+<meta property="article:modified_time" content="2016-02-11T00:00:00&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Moving in circles 
+
+</title>
+<link rel="canonical" href="http://tollyx.net/old/moving-in-circles/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://tollyx.net/css/reset.css?t=2017-06-26%2017%3a43%3a43.5128658%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/pygments.css?t=2017-06-26%2017%3a43%3a43.5128658%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/main.css?t=2017-06-26%2017%3a43%3a43.5128658%20%2b0200%20CEST">
+    
+        <link rel="stylesheet" href="http://tollyx.net/css/override.css?t=2017-06-26%2017%3a43%3a43.5128658%20%2b0200%20CEST">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://tollyx.net/img/fav.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://tollyx.net/"><img class="avatar" src="http://tollyx.net/img/avatar.png" srcset="http://tollyx.net/img/avatar.png 1x"></a>
+            
+            <a href="http://tollyx.net/"><div class="name">tollyx</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="http://tollyx.net/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="http://tollyx.net/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-projects"><a href="http://tollyx.net/projects/"><span>Projects</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//gitlab.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/gitlab.svg" alt="gitlab" /></a>
+        
+
+        
+            <a href="//twitter.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:adrian@tollyx.net"><img class="icon" src="http://tollyx.net/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="http://tollyx.net/index.xml"><img class="icon" src="http://tollyx.net/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    Moving in circles
+
+</div>
+
+            <div class="markdown">
+                <p>If you want to move around a 2D planet while still being able to loop around, you have a few options. You could have the ground be flat like any other 2D game and loop one edge to the other, having your characters move just like any other 2D game. Or you could make the ground an actual circle and make your characters orbit around it using basic trigonometrics. We (or, well, I) decided to do the latter.</p>
+
+<video autoplay loop>
+  <source src="https://λ.pw/E7w.mp4" type="video/mp4">
+</video>
+
+<p>The reasoning behind that was because we wanted a nice curvature on the surface on the planet so that the player quickly understands that the level is in fact a circular planet and that you will loop around if you move far enough.</p>
+
+<p>In order to achieve that, we had to either rely on some good old math, use some fancy shaders (which is an uncharted, scary territory for me) or use some clever method that we didn&rsquo;t think of. So the obvious choice was math, especially so since I remembered the math behind it. While the it isn&rsquo;t very advanced, the math can be hard to wrap your head around if you aren&rsquo;t familiar with trigonometry.</p>
+
+<p>Here&rsquo;s literally all the code that takes care of placing the player on the surface on the planet:</p>
+
+<pre><code class="language-cpp">float angleRadians = angle * M_PI / 180;
+setPosition(cosf(angleRadians) * radius, sinf(angleRadians) * radius);
+</code></pre>
+
+<p>Here&rsquo;s an image so you maybe can visualize it a bit easier:</p>
+
+<p><img src="http://i.imgur.com/I5zfue8.png" alt="you got to admit, it is a pretty nice triangle" /></p>
+
+<p>All we need to use for positioning are the angle and radius, since we can calculate <code>x</code> and <code>y</code> from those using these mathemagical functions called <code>sin()</code> and <code>cos()</code>. If you do <code>cos(angle) * radius</code>, you get <code>x</code>. If you do <code>sin(angle) * radius</code>, you get <code>y</code>. There&rsquo;s quite a lot more to this, but this is all we need in order to calculate the position from an angle and radius.</p>
+
+<pre><code class="language-cpp">float angleRadians = angle * M_PI / 180;
+</code></pre>
+
+<p>This line is there in order to convert degrees into radians. That&rsquo;s because the math library functions uses radians, but I stored the angle in degrees since that&rsquo;s what all rotation functions in SFML uses.</p>
+
+<p>All that&rsquo;s left is to move the actual player, which is simply done by increasing/decreasing the angle in order to move it around the circle and increase/decrease the radius in order to move the player closer/further away to the circle.</p>
+
+<p>The thing about using this method is that I don&rsquo;t really know how to do proper 2D platformer collisions using this, but that&rsquo;s irrevelant for our game so I don&rsquo;t have to care about that, for now.</p>
+
+            </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tollyx';
+    var disqus_identifier = 'http:\/\/tollyx.net\/old\/moving-in-circles\/';
+    var disqus_title = 'Moving in circles';
+    var disqus_url = 'http:\/\/tollyx.net\/old\/moving-in-circles\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://tollyx.net/blog/hello-world-again/</loc>
+    <lastmod>2017-06-25T22:40:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/a-rat-betwixt-initiative/</loc>
+    <lastmod>2017-05-01T15:27:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/a-rat-betwixt/</loc>
+    <lastmod>2017-04-27T17:15:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/projects/</loc>
+    <lastmod>2016-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/its-raining-crates/</loc>
+    <lastmod>2016-03-17T23:04:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/you-got-a-new-highscore/</loc>
+    <lastmod>2016-03-10T23:00:48+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/code-review-grupp-9-spelarklass/</loc>
+    <lastmod>2016-03-04T13:31:05+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/the-minimap/</loc>
+    <lastmod>2016-03-03T21:18:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/graphs/</loc>
+    <lastmod>2016-02-25T20:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/aimbotting-for-turrets/</loc>
+    <lastmod>2016-02-18T23:22:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/moving-in-circles/</loc>
+    <lastmod>2016-02-11T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/aaaand-were-live/</loc>
+    <lastmod>2016-02-06T21:09:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/old/</loc>
+    <lastmod>2017-05-01T15:27:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/blog/</loc>
+    <lastmod>2017-06-25T22:40:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://tollyx.net/</loc>
+    <lastmod>2017-06-25T22:40:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

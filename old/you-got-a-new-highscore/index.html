@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="tollyx">
+<meta name="description" content="This week I finished our highscore system, but when I say finished I actually mean &ldquo;we finally got this thing working properly don&rsquo;t touch it&rdquo;. We&rsquo;ve actually been working on the highscore system on and off for a few weeks now and it didn&rsquo;t work nicely until recently. And we still need to work a bit on the UI. Why it took so long is because we had a bunch of small problems that together caused a pretty large mess.">
+
+<meta property="og:title" content="You got a new Highscore!" />
+<meta property="og:description" content="This week I finished our highscore system, but when I say finished I actually mean &ldquo;we finally got this thing working properly don&rsquo;t touch it&rdquo;. We&rsquo;ve actually been working on the highscore system on and off for a few weeks now and it didn&rsquo;t work nicely until recently. And we still need to work a bit on the UI. Why it took so long is because we had a bunch of small problems that together caused a pretty large mess." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tollyx.net/old/you-got-a-new-highscore/" />
+
+
+
+<meta property="article:published_time" content="2016-03-10T23:00:48&#43;01:00"/>
+<meta property="article:modified_time" content="2016-03-10T23:00:48&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     You got a new Highscore! 
+
+</title>
+<link rel="canonical" href="http://tollyx.net/old/you-got-a-new-highscore/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://tollyx.net/css/reset.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/pygments.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/main.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    
+        <link rel="stylesheet" href="http://tollyx.net/css/override.css?t=2017-06-26%2017%3a43%3a43.503864%20%2b0200%20CEST">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://tollyx.net/img/fav.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://tollyx.net/"><img class="avatar" src="http://tollyx.net/img/avatar.png" srcset="http://tollyx.net/img/avatar.png 1x"></a>
+            
+            <a href="http://tollyx.net/"><div class="name">tollyx</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="http://tollyx.net/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="http://tollyx.net/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-projects"><a href="http://tollyx.net/projects/"><span>Projects</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//gitlab.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/gitlab.svg" alt="gitlab" /></a>
+        
+
+        
+            <a href="//twitter.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:adrian@tollyx.net"><img class="icon" src="http://tollyx.net/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="http://tollyx.net/index.xml"><img class="icon" src="http://tollyx.net/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    You got a new Highscore!
+
+</div>
+
+            <div class="markdown">
+                <p>This week I finished our highscore system, but when I say finished I actually mean &ldquo;we finally got this thing working properly don&rsquo;t touch it&rdquo;. We&rsquo;ve actually been working on the highscore system on and off for a few weeks now and it didn&rsquo;t work nicely until recently. And we still need to work a bit on the UI. Why it took so long is because we had a bunch of small problems that together caused a pretty large mess.</p>
+
+<p><img src="http://i.imgur.com/06XxDVS.png" alt="We still need to work on that UI." /></p>
+
+<p>Let me list off the issues that it still had when I started working on it this week:</p>
+
+<ol>
+<li>The text you input was all garbled garbage.</li>
+<li>The UI scaled incorrectly between fullscreen and windowed.</li>
+<li>The list saved and loaded properly, but the UI didn&rsquo;t update correctly right after entering a new highscore.</li>
+<li>There was no title to the menu</li>
+<li>There was no indication that you had a new highscore and could enter your name</li>
+</ol>
+
+<p>Out of those five I&rsquo;ve fixed the first three. I&rsquo;m going to work on the last two tomorrow.</p>
+
+<p>As for the first, it was a really stupid mistake that took way too long to discover: We were using <code>KeyPressedEvent</code>s and not <code>TextInputEvent</code>s. I think the reason why we did that was simply because we thought we were using TextInput when we were&rsquo;nt. The <code>sf::Event</code> class that has all the event types baked into it no matter what event type it actually is doesn&rsquo;t help either. If we just had checked if the event that we were using actually were a TextInputEvent we would&rsquo;ve saved so much trouble.</p>
+
+<p>The second one was a simple fix, instead of placing and scaling things statically, do everything in relation to the window size. Something like this:<br />
+<code>highscore.setPosition(window.getSize().x * 0.3, window.getSize().y * 0.2);</code></p>
+
+<p>The third was a bit more tricky. The names and score names were only stored in two arrays (one for names, one for scores) with <code>sf::Text</code> objects. This made it pretty hard to simply insert a new highscore and push the others down a step. I solved it by adding a vector with name-score structs. When I add a new score I insert it at its position in the vector, erase the now 11th score in the list and then update the arrays with <code>sf::Text</code>s so they match the highscore vector. I&rsquo;ll have to redo it if I want the text entry to be at the position you get in the list, but I&rsquo;ll look for other solutions before remaking anything.</p>
+
+            </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tollyx';
+    var disqus_identifier = 'http:\/\/tollyx.net\/old\/you-got-a-new-highscore\/';
+    var disqus_title = 'You got a new Highscore!';
+    var disqus_url = 'http:\/\/tollyx.net\/old\/you-got-a-new-highscore\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+</body>
+</html>
+

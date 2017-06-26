@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on tollyx.net</title>
+    <link>http://tollyx.net/blog/</link>
+    <description>Recent content in Blog on tollyx.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 25 Jun 2017 22:40:00 +0100</lastBuildDate>
+    
+	<atom:link href="http://tollyx.net/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hello world, again</title>
+      <link>http://tollyx.net/blog/hello-world-again/</link>
+      <pubDate>Sun, 25 Jun 2017 22:40:00 +0100</pubDate>
+      
+      <guid>http://tollyx.net/blog/hello-world-again/</guid>
+      <description>So I&amp;rsquo;ve yet again remade this website. This time I&amp;rsquo;ve moved from jekyll to hugo, because I&amp;rsquo;ve had to reinstall ruby far too many times and there&amp;rsquo;s always some issue with it preventing me from just getting it up and running so I can update this site. Hugo is just a binary, no need to install anything to get it to run. It&amp;rsquo;s far less of a hassle.
+If you for whatever reason want to see the old posts (which were basically just dev logs required for some of my school courses), you can find them here.</description>
+    </item>
+    
+  </channel>
+</rss>

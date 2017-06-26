@@ -1,0 +1,28 @@
+.project  {
+  width: 100%;
+  overflow: hidden;
+  padding: 1em 0 0;
+  height: auto;
+}
+
+.project a {
+  position: relative;
+}
+
+.project-title {
+  position: absolute;
+  bottom: 0em;
+  left: 0em;
+  padding: .2em .4em .4em;
+  margin: 0;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+a:hover .project-title {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.project-banner {
+  margin: 0 !important;
+}

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="tollyx">
+<meta name="description" content="It&rsquo;s pretty hard to defend a planet if you&rsquo;re alone. I mean, you&rsquo;re just this tiny guy on this huge planet and aliens are attacking from all over the place. You simply won&rsquo;t be able to defend the entire planet at once. The solution? Turrets!
+ These wasn&rsquo;t that hard to implement since we&rsquo;re placing the turret at the players position that we&rsquo;ve already calculated and reuse the aiming and shooting code that we have for the player!">
+
+<meta property="og:title" content="Aimbotting for turrets" />
+<meta property="og:description" content="It&rsquo;s pretty hard to defend a planet if you&rsquo;re alone. I mean, you&rsquo;re just this tiny guy on this huge planet and aliens are attacking from all over the place. You simply won&rsquo;t be able to defend the entire planet at once. The solution? Turrets!
+ These wasn&rsquo;t that hard to implement since we&rsquo;re placing the turret at the players position that we&rsquo;ve already calculated and reuse the aiming and shooting code that we have for the player!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://tollyx.net/old/aimbotting-for-turrets/" />
+
+
+
+<meta property="article:published_time" content="2016-02-18T23:22:00&#43;01:00"/>
+<meta property="article:modified_time" content="2016-02-18T23:22:00&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Aimbotting for turrets 
+
+</title>
+<link rel="canonical" href="http://tollyx.net/old/aimbotting-for-turrets/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://tollyx.net/css/reset.css?t=2017-06-26%2017%3a43%3a43.5128658%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/pygments.css?t=2017-06-26%2017%3a43%3a43.5128658%20%2b0200%20CEST">
+    <link rel="stylesheet" href="http://tollyx.net/css/main.css?t=2017-06-26%2017%3a43%3a43.5128658%20%2b0200%20CEST">
+    
+        <link rel="stylesheet" href="http://tollyx.net/css/override.css?t=2017-06-26%2017%3a43%3a43.5128658%20%2b0200%20CEST">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://tollyx.net/img/fav.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="http://tollyx.net/"><img class="avatar" src="http://tollyx.net/img/avatar.png" srcset="http://tollyx.net/img/avatar.png 1x"></a>
+            
+            <a href="http://tollyx.net/"><div class="name">tollyx</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="http://tollyx.net/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="http://tollyx.net/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-projects"><a href="http://tollyx.net/projects/"><span>Projects</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//gitlab.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/gitlab.svg" alt="gitlab" /></a>
+        
+
+        
+            <a href="//twitter.com/tollyx" target="_blank" rel="noopener"><img class="icon" src="http://tollyx.net/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:adrian@tollyx.net"><img class="icon" src="http://tollyx.net/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="http://tollyx.net/index.xml"><img class="icon" src="http://tollyx.net/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    Aimbotting for turrets
+
+</div>
+
+            <div class="markdown">
+                <p>It&rsquo;s pretty hard to defend a planet if you&rsquo;re alone. I mean, you&rsquo;re just this tiny guy on this huge planet and aliens are attacking from all over the place. You simply won&rsquo;t be able to defend the entire planet at once. The solution? Turrets!</p>
+
+<video autoplay loop>
+  <source src="https://λ.pw/evQ.mp4" type="video/mp4">
+</video>
+
+<p>These wasn&rsquo;t that hard to implement since we&rsquo;re placing the turret at the players position <a href="{% post_url 2016-02-11-moving-in-circles %}">that we&rsquo;ve already calculated</a> and reuse the aiming and shooting code that we have for the player! But alright, let&rsquo;s slow down, here&rsquo;s how it works:</p>
+
+<p>In order to get the turrets to shoot at something, we need <em>something</em> to aim at. For the player we had the mouse and for the turret, all we have to do is replace the mouse with an enemy target. Preferrably the enemy closest to the turret and within a specified range from the turret. For that, I created this very specific function inside our enemy manager:</p>
+
+<pre><code class="language-cpp">// EnemyManager.cpp
+// ...
+
+EnemyShip* EnemyManager::GetClosestShipInRange(sf::Vector2f turretPos, float range)
+{
+  EnemyShip* closestShip = nullptr;
+  float closestDist = range;
+  auto it = vecPtrEnemyShip.begin();
+  while (it != vecPtrEnemyShip.end())
+  {
+    sf::Vector2f deltaPos = turretPos - (*it)-&gt;getPosition();
+    float distance = sqrt(deltaPos.x * deltaPos.x + deltaPos.y * deltaPos.y);
+
+    if (closestDist &gt;= distance)
+    {
+       closestDist = distance;
+       closestShip = (*it);
+    }
+    ++it;
+  }
+  return closest;
+}
+</code></pre>
+
+<p>It iterates over all the enemy ships and use the <a href="https://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagorean theorem</a> in order to get the distance between the turret and the ships. While iterating, it&rsquo;ll save the ship to a seperate variable if its distance from the turret is less than whatever that&rsquo;s in <code>closestDist</code>, which starts out at the max range provided as an argument, effectively ignoring all ships outside the range. When it has iterated through all the ship it will simply return the ship that&rsquo;s currently saved. If there&rsquo;s no ship within the range it will simply return <code>nullptr</code>.</p>
+
+<p>Now all we have to do is to get the turret to aim at the enemy that we get from that function and pull the trigger. As previously mentioned, if you know how to make the player to aim at the mouse, you probably already know how to do this.</p>
+
+<pre><code class="language-cpp">void Turret::Update(float dt)
+{
+  if (target != nullptr)
+  {
+    float deltaX = cannonSprite.getPosition().x - target-&gt;getPosition().x;
+    float deltaY = cannonSprite.getPosition().y - target-&gt;getPosition().y;
+    float angle = std::atan2(deltaY, deltaX) * 180 / M_PI;
+    cannonSprite.setRotation(angle);
+    Fire();
+  }
+}
+</code></pre>
+
+<p>We use some <a href="https://en.wikipedia.org/wiki/Atan2">mathemagical trigonometrics</a> to figure out the angle we need to aim at in order to hit our target and convert it from radians to degrees. Then we simply aim our cannon and pull the trigger.</p>
+
+<p>While the aiming as it is now would be perfect if the cannons projectiles were <a href="https://en.wikipedia.org/wiki/Ray_casting">raycasts</a>, our projectiles aren&rsquo;t. This means that as our target gets further away and goes faster, we&rsquo;re pretty likely to miss. This could be partially solved by keeping the targets velocity in mind when aiming so that we aim in front of it instead of straight at it, but that&rsquo;s an improvement for a later date.</p>
+
+            </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tollyx';
+    var disqus_identifier = 'http:\/\/tollyx.net\/old\/aimbotting-for-turrets\/';
+    var disqus_title = 'Aimbotting for turrets';
+    var disqus_url = 'http:\/\/tollyx.net\/old\/aimbotting-for-turrets\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+</body>
+</html>
+
