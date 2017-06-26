@@ -43,6 +43,20 @@ The game is played on one large screen - such as a TV or a projector - and each 
     </item>
     
     <item>
+      <title>About Me</title>
+      <link>http://tollyx.net/about/</link>
+      <pubDate>Sun, 26 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://tollyx.net/about/</guid>
+      <description>My name is Adrian Hedqvist, and this is a page that&amp;rsquo;s about me.
+I&amp;rsquo;m a swedish guy born year 1996 and I enjoy games, programming and music.
+The first game I remember playing was Lemmings.
+My current favorite tabletop game is Superfight.
+I began studying game design and programming at Campus Gotland in August, 2015 and ended my studies in June, 2017.
+I&amp;rsquo;m really bad at coming up with stuff to write about myself.</description>
+    </item>
+    
+    <item>
       <title>Projects</title>
       <link>http://tollyx.net/projects/</link>
       <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
