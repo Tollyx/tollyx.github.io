@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello three.js!</title>
+	<style>
+		body { 
+			margin: 0; 
+			overflow: hidden; 
+			background-color: #6a00a6;
+			background-image: linear-gradient(0deg, #000000, #D00092 20%, #001534);
+		}
+		canvas { width: 100%; height: 100%; }
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="js/three.min.js"></script>
+	<script type="text/javascript">
+		
+		var scene, camera, renderer;
+		var heightmap;
+		var sun;
+
+		// heightmap
+		var size = 256;
+		var segments = 64;
+		var scale = 1.4;
+
+		init();
+		animate();
+
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+		}
+
+		function init() {
+			scene = new THREE.Scene();
+			camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+			renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+			document.body.appendChild(renderer.domElement);
+			renderer.setSize( window.innerWidth, window.innerHeight );
+
+			var geometry = new THREE.PlaneGeometry(size, size, segments, segments, segments);
+			geometry.rotateX(-Math.PI/2);
+			geometry.rotateY(-Math.PI*.02);
+			var material = new THREE.MeshPhongMaterial({ color: 0xaf00fa });
+			material.lights = true;
+			heightmap = new THREE.Mesh(geometry, material);
+			scene.add(heightmap);
+
+			sun = new THREE.DirectionalLight( 0xfa00af, 1 );
+			sun.position.z = -2;
+			sun.position.y = 2;
+			sun.position.x = 0;
+			scene.add(sun);
+
+			camera.position.z = size*0.5;
+			camera.position.y = scale * 2.5;
+			camera.rotateX(Math.PI*.06)
+
+			window.addEventListener( 'resize', onWindowResize, false );
+		}
+
+		function animate(currTime) {
+			requestAnimationFrame(animate);
+			
+			var vertices = heightmap.geometry.vertices;
+			for (var i = 0, l = vertices.length; i < l; i++) {
+				var x = i % segments;
+				var y = ~~(i / segments);
+				vertices[i].y = Math.sin((x+y) + currTime/4000) * scale;
+			}
+			heightmap.geometry.verticesNeedUpdate = true;
+			heightmap.geometry.computeFlatVertexNormals();
+			heightmap.geometry.normalsNeedUpdate = true;
+			renderer.render(scene, camera);
+		}
+	</script>
+</body>
+</html>
